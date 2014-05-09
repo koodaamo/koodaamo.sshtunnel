@@ -2,13 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import sys, getpass, docopt
-
 from twisted.conch.ssh.transport import SSHClientTransport
 from twisted.conch.ssh import userauth, connection
-
 from twisted.conch.ssh.forwarding import SSHListenClientForwardingChannel
 from twisted.conch.ssh.forwarding import SSHListenForwardingFactory
-
 from twisted.internet import defer, protocol, reactor
 from twisted.python import log
 
@@ -81,8 +78,11 @@ def tunnel():
 	"command-line interface"
 
 	args = docopt.docopt(doc, version='tunnel 1.0')
-	log.startLogging(sys.stdout)
 
+	if args["--debug"]:
+		log.startLogging(sys.stdout)
+	else:
+		print("\nstarting tunnel")
 	user, passwd = args["<user>"], args["<passwd>"]
 	lp = int(args["<localport>"])
 	rh, rp = args["<remotehost>"], int(args["<remoteport>"])
