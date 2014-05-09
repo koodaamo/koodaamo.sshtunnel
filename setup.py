@@ -38,7 +38,7 @@ setup(
        [console_scripts]
        tunnel = koodaamo.sshtunnel.sshtunnel:tunnel
     """,
-    license="BSD",
+    license="GPLv2",
     zip_safe=False,
     keywords='koodaamo.sshtunnel',
     classifiers=[
@@ -46,8 +46,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
     ],
     test_suite='tests.test_suite',
 )
